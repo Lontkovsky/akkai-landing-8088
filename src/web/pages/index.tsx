@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import { Navbar } from '@/components/Navbar';
 import { VideoSection } from '@/components/VideoSection';
 import { WowDemo } from '@/components/WowDemo';
