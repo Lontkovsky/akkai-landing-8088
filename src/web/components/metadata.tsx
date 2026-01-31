@@ -5,6 +5,7 @@ export function Metadata() {
 		<>
 			<title>{siteConfig.name}</title>
 			<meta name="description" content={siteConfig.description} />
+			<meta name="keywords" content="AI co-pilot, real-time transcription, meeting assistant, privacy AI, screen awareness, smart notes" />
 
 			{/* Open Graph */}
 			<meta property="og:title" content={siteConfig.name} />
@@ -22,6 +23,23 @@ export function Metadata() {
 
 			{/* Theme */}
 			<meta name="theme-color" content={siteConfig.themeColor} />
+
+			{/* Schema.org markup */}
+			<script type="application/ld+json">
+				{JSON.stringify({
+					"@context": "https://schema.org",
+					"@type": "SoftwareApplication",
+					"name": "Panda",
+					"operatingSystem": "macOS, Windows",
+					"applicationCategory": "ProductivityApplication",
+					"offers": {
+						"@type": "Offer",
+						"price": "0.00",
+						"priceCurrency": "USD"
+					},
+					"description": siteConfig.description
+				})}
+			</script>
 		</>
 	);
 }
