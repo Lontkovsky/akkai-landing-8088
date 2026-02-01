@@ -10,6 +10,7 @@ interface VideoSectionProps {
   containerClassName?: string;
   preload?: boolean;
   id?: string;
+  respectReducedMotion?: boolean;
 }
 
 export const VideoSection: React.FC<VideoSectionProps> = ({
@@ -20,10 +21,12 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
   containerClassName,
   preload = false,
   id,
+  respectReducedMotion = true,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
+  const shouldReduceMotion = prefersReducedMotion && respectReducedMotion;
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(preload);
@@ -49,9 +52,18 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
   }, [preload]);
 
   useEffect(() => {
+    if (shouldLoad && videoRef.current && !videoError) {
+      videoRef.current.muted = true;
+      videoRef.current.defaultMuted = true;
+      // Ensure the browser starts fetching the video.
+      videoRef.current.load();
+    }
+  }, [shouldLoad, videoError]);
+
+  useEffect(() => {
     if (prefersReducedMotion && videoRef.current) {
       videoRef.current.pause();
-    } else if (!prefersReducedMotion && videoRef.current && isVideoLoaded && !videoError) {
+    } else if (!shouldReduceMotion && videoRef.current && isVideoLoaded && !videoError) {
       // Ensure video is playing if it should be
       videoRef.current.play().catch(err => {
         // Many browsers block autoplay unless muted, but we are muted.
@@ -61,7 +73,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
         }
       });
     }
-  }, [prefersReducedMotion, isVideoLoaded, videoError, videoSrc]);
+  }, [prefersReducedMotion, shouldReduceMotion, isVideoLoaded, videoError, videoSrc]);
 
   const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
     console.error(`Video error for ${videoSrc}:`, e);
@@ -69,6 +81,25 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
   };
 
   const handleLoadedData = () => {
+    setIsVideoLoaded(true);
+  };
+
+  const handleLoadedMetadata = () => {
+    setIsVideoLoaded(true);
+  };
+
+  const handleCanPlay = () => {
+    setIsVideoLoaded(true);
+    if (!shouldReduceMotion && videoRef.current && !videoError) {
+      videoRef.current.play().catch(err => {
+        if (err.name !== 'AbortError') {
+          console.warn(`Video play failed for ${videoSrc}:`, err);
+        }
+      });
+    }
+  };
+
+  const handlePlaying = () => {
     setIsVideoLoaded(true);
   };
 
@@ -86,13 +117,16 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
         {shouldLoad && !videoError && (
           <video
             ref={videoRef}
-            autoPlay={!prefersReducedMotion}
+            autoPlay={!shouldReduceMotion}
             loop
             muted
             playsInline
             poster={posterSrc}
             preload={preload ? "auto" : "metadata"}
+            onLoadedMetadata={handleLoadedMetadata}
             onLoadedData={handleLoadedData}
+            onCanPlay={handleCanPlay}
+            onPlaying={handlePlaying}
             onError={handleVideoError}
             className={cn(
               "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
@@ -109,7 +143,7 @@ export const VideoSection: React.FC<VideoSectionProps> = ({
           alt="" 
           className={cn(
             "absolute inset-0 w-full h-full object-cover transition-opacity duration-1000",
-            (prefersReducedMotion || !isVideoLoaded || videoError) ? "opacity-100" : "opacity-0"
+            (shouldReduceMotion || !isVideoLoaded || videoError) ? "opacity-100" : "opacity-0"
           )}
           aria-hidden="true"
         />
