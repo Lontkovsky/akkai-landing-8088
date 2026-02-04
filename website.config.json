@@ -1,0 +1,15 @@
+{
+  "id": "7k4ert36o2uz0ax7o2zz0le33iqx8hfr",
+  "name": "Panda | Your Invisible AI Co-pilot",
+  "description": "Panda is an invisible AI assistant that stays on your screen, transcribing meetings and providing contextual help without appearing in screen shares.",
+  "url": "https://panda-ai.com",
+  "ogImage": "/og-image.png",
+  "favicon": "/favicon.ico",
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@panda_ai"
+  },
+  "themeColor": "#050607",
+  "previewPort": 4485,
+  "previewUrl": "https://4485-i2khsksmu7gd6nh9upbf5.e2b.app"
+}
