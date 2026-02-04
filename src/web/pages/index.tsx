@@ -124,11 +124,9 @@ const Home = () => {
       </VideoSection>
 
       {/* Problem Section */}
-      <VideoSection
-        videoSrc="/videos/02-problem.mp4"
-        posterSrc="/videos/02-problem.jpg"
-        respectReducedMotion={false}
+      <section
         id="problem"
+        className="relative w-full py-24 bg-background border-t border-white/5"
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -191,14 +189,12 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* How It Works Section */}
-      <VideoSection
-        videoSrc="/videos/03-howitworks.mp4"
-        posterSrc="/videos/03-howitworks.jpg"
-        respectReducedMotion={false}
+      <section
         id="how-it-works"
+        className="relative w-full py-24 bg-background/80 border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -326,14 +322,12 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* Real-Time Transcription Section */}
-      <VideoSection
-        videoSrc="/videos/04-transcription.mp4"
-        posterSrc="/videos/04-transcription.jpg"
-        respectReducedMotion={false}
+      <section
         id="features"
+        className="relative w-full py-24 bg-background/80 border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <div className="flex-1 space-y-8">
@@ -400,14 +394,12 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* Screen-Aware Assistance Section */}
-      <VideoSection
-        videoSrc="/videos/05-screenaware.mp4"
-        posterSrc="/videos/05-screenaware.jpg"
-        respectReducedMotion={false}
+      <section
         id="screen-aware"
+        className="relative w-full py-24 bg-background border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -479,14 +471,12 @@ const Home = () => {
             </span>
           </motion.div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* Invisible During Screen Share Section */}
-      <VideoSection
-        videoSrc="/videos/06-screenshare.mp4"
-        posterSrc="/videos/06-screenshare.jpg"
-        respectReducedMotion={false}
+      <section
         id="screen-share"
+        className="relative w-full py-24 bg-background border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16">
           <div className="flex-1 space-y-8 text-right lg:text-left">
@@ -548,14 +538,12 @@ const Home = () => {
             </motion.div>
           </div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* Privacy & Control Section */}
-      <VideoSection
-        videoSrc="/videos/07-privacy.mp4"
-        posterSrc="/videos/07-privacy.jpg"
-        respectReducedMotion={false}
+      <section
         id="privacy"
+        className="relative w-full py-24 bg-background border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -712,14 +700,12 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
-      </VideoSection>
+      </section>
 
       {/* Pricing Section */}
-      <VideoSection
-        videoSrc="/videos/08-pricing.mp4"
-        posterSrc="/videos/08-pricing.jpg"
-        respectReducedMotion={false}
+      <section
         id="pricing"
+        className="relative w-full py-24 bg-background border-t border-white/5"
       >
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -873,7 +859,7 @@ const Home = () => {
             </p>
           </motion.div>
         </div>
-      </VideoSection>
+      </section>
 
       <Footer />
     </main>
