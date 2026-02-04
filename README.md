@@ -1,74 +1,24 @@
-# Website
+# Nuvis Landing Page
 
-React + Vite + Hono + Tailwind + Cloudflare Workers
+Static React landing page built with Vite, Tailwind CSS, and Framer Motion. No backend, no API surface—everything lives in `src/web`.
 
 ## Scripts
-- `bun run check` — Run before committing to verify types, build, and deployment config
-- `bun run cf-typegen` — Run after modifying Cloudflare bindings to regenerate types
+- `bun run dev` — start the Vite dev server on `http://localhost:5173`
+- `bun run build` — emit a production build
+- `bun run preview` — preview the production output
+- `bun run lint` — run ESLint over the codebase
 
-## Quick Start
-
-```bash
-# Install dependencies
+## Quick start
+```
 bun install
-
-# Generate types and run migrations
-bun cf-typegen
-bun db:generate
-bun db:migrate
-
-# Start dev server
-bun dev
+bun run dev
 ```
 
-## shadcn/ui
+## Structure
+- `src/web/main.tsx` mounts the React tree and provides the router shell.
+- `src/web/app.tsx` renders the single landing page route at `/`.
+- `src/web/pages/index.tsx` contains the hero and supporting sections with motion.
+- `src/web/components` holds layout primitives (`Navbar`, `VideoSection`, etc.).
+- `src/web/styles.css` wires up global styles, fonts, and utility imports.
 
-Add components you need, customize them however you want.
-
-```bash
-bun x shadcn@latest add button card dialog
-```
-
-Components land in `src/web/components/ui/`, import with `@/components/ui/button`.
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-<Button variant="outline">Click me</Button>
-```
-
-## Routing
-
-Client-side routing uses [wouter](https://github.com/molefrog/wouter). Add routes in `src/web/app.tsx`:
-
-```tsx
-import { Route, Switch } from "wouter";
-
-<Switch>
-  <Route path="/" component={Home} />
-  <Route path="/about" component={About} />
-</Switch>
-```
-
-## Database
-
-Uses [Drizzle ORM](https://orm.drizzle.team/) with Cloudflare D1.
-
-```bash
-bun db:generate       # Generate migrations from schema
-bun db:migrate        # Apply migrations locally
-```
-
-Schema is in `src/api/database/schema.ts`, migrations in `src/api/migrations/`.
-
-## Coding Style
-
-- Functional programming preferred (use `const`, avoid `let`)
-- Extract types into separate interfaces
-- No explicit return types unless necessary
-- Prefer early returns to reduce nesting
-- Use switch statements or key-value maps instead of nested if statements
-- Keep code simple—minimize complex state and prop drilling
-- Use existing libraries over custom implementations
-- Prefer built-in Node modules over custom utils
-- Write tests for complex functionality
+Keep the landing page lean: add/trim sections in `src/web/pages/index.tsx`, and keep data self-contained without API calls.
