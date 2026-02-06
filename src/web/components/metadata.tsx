@@ -7,7 +7,7 @@ export function Metadata() {
 			<meta name="description" content={siteConfig.description} />
 			<meta
 				name="keywords"
-				content="AI interview copilot, stealth overlay, local-first AI, interview coaching, real-time interview assistant, Nuvis"
+				content="AI meeting copilot, live transcription, assist chat, session summaries, screen share invisible mode, Nuvis"
 			/>
 
 			{/* Open Graph */}

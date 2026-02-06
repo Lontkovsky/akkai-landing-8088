@@ -1,31 +1,28 @@
 import { motion } from "framer-motion";
 import {
-  Download,
   Play,
-  Shield,
   EyeOff,
-  Brain,
-  Zap,
   Sparkles,
   CheckCircle2,
   Star,
   ArrowRight,
-  Cpu,
-  GraduationCap,
   MessageSquare,
+  Mic,
+  Camera,
+  FileText,
 } from "lucide-react";
 
 const comparisonCompetitors = [
   { key: "interviewCoder", label: "Interview Coder" },
-  { key: "cluely", label: "Cluely" },
-  { key: "otter", label: "Otter" },
-  { key: "avoma", label: "Avoma" },
-  { key: "sensei", label: "Sensei" },
+  { key: "interviewingIo", label: "Interviewing.io" },
+  { key: "lockedIn", label: "LockedIn AI" },
   { key: "finalRound", label: "Final Round AI" },
-  { key: "metaview", label: "Metaview" },
+  { key: "aiApply", label: "AIApply" },
+  { key: "ultraCode", label: "UltraCode" },
+  { key: "otter", label: "Otter" },
   { key: "fireflies", label: "Fireflies" },
   { key: "fathom", label: "Fathom" },
-  { key: "grain", label: "Grain" },
+  { key: "avoma", label: "Avoma" },
 ] as const;
 
 type CompetitorKey = (typeof comparisonCompetitors)[number]["key"];
@@ -38,374 +35,163 @@ type ComparisonRow = {
 
 const comparisonRows: ComparisonRow[] = [
   {
-    feature: "Local-first processing (audio + screen)",
-    nuvis: "✅",
-    interviewCoder: "✗",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "✗",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Stealth screen-share proof (never shows)",
+    feature: "System audio + mic transcription",
     nuvis: "✅",
     interviewCoder: "🔶",
-    cluely: "🔶*",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "✗",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Real-time candidate coaching",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
     finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
+    aiApply: "🔶",
+    ultraCode: "🔶",
+    otter: "✅",
+    fireflies: "✅",
+    fathom: "✅",
+    avoma: "✅",
   },
   {
-    feature: "Pre-flight interview brief",
+    feature: "Assist chat with live context",
     nuvis: "✅",
     interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
     finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Post-call debrief + next steps",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
     otter: "🔶",
-    avoma: "🔶",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "🔶",
     fireflies: "🔶",
     fathom: "🔶",
-    grain: "🔶",
-  },
-  {
-    feature: "CV/GitHub auto-import",
-    nuvis: "✅",
-    interviewCoder: "✗",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Your Story Vault (STAR narratives)",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "System Design hints in real time",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Company + role-specific prep packs",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Offline mode",
-    nuvis: "✅",
-    interviewCoder: "✗",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "✗",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Latency under 200ms",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
     avoma: "🔶",
-    sensei: "🔶",
+  },
+  {
+    feature: "Screenshots into context",
+    nuvis: "✅",
+    interviewCoder: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
     finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "🔶",
-    fathom: "🔶",
-    grain: "🔶",
-  },
-  {
-    feature: "No meeting bot joins your call",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "✗",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Hidden from recordings",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "✗",
-    finalRound: "✗",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Works with any call app (Zoom, Meet, Teams)",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
     otter: "🔶",
-    avoma: "🔶",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "🔶",
     fireflies: "🔶",
     fathom: "🔶",
-    grain: "🔶",
+    avoma: "🔶",
   },
   {
-    feature: "Adaptive coaching to your style",
+    feature: "Session history + recovery",
     nuvis: "✅",
     interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
     finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
+    aiApply: "🔶",
+    ultraCode: "🔶",
+    otter: "✅",
+    fireflies: "✅",
+    fathom: "✅",
+    avoma: "✅",
   },
   {
-    feature: "Multi-language support",
+    feature: "Export to JSON/Markdown",
     nuvis: "✅",
     interviewCoder: "🔶",
-    cluely: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
+    finalRound: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
+    otter: "✅",
+    fireflies: "✅",
+    fathom: "✅",
+    avoma: "✅",
+  },
+  {
+    feature: "Invisible mode for screen share",
+    nuvis: "✅",
+    interviewCoder: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
+    finalRound: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
     otter: "🔶",
-    avoma: "🔶",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "🔶",
     fireflies: "🔶",
     fathom: "🔶",
-    grain: "🔶",
-  },
-  {
-    feature: "Private memory of your projects",
-    nuvis: "✅",
-    interviewCoder: "✗",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Practice interview mode",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Shadow Practice Mode (score + replay)",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Custom prompts per role",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
     avoma: "🔶",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "🔶",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
   },
   {
-    feature: "Candidate-first templates",
+    feature: "Custom instructions + model",
     nuvis: "✅",
     interviewCoder: "🔶",
-    cluely: "✗",
-    otter: "✗",
-    avoma: "✗",
-    sensei: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
     finalRound: "🔶",
-    metaview: "✗",
-    fireflies: "✗",
-    fathom: "✗",
-    grain: "✗",
-  },
-  {
-    feature: "Install time < 2 minutes",
-    nuvis: "✅",
-    interviewCoder: "🔶",
-    cluely: "🔶",
-    otter: "✗",
-    avoma: "🔶",
-    sensei: "🔶",
-    finalRound: "🔶",
-    metaview: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
+    otter: "🔶",
     fireflies: "🔶",
     fathom: "🔶",
-    grain: "🔶",
+    avoma: "🔶",
   },
   {
-    feature: "Price / month",
-    nuvis: "€15",
-    interviewCoder: "€49+",
-    cluely: "€75",
-    otter: "€20",
-    avoma: "€50+",
-    sensei: "€29",
-    finalRound: "€99+",
-    metaview: "€50+",
-    fireflies: "€19+",
-    fathom: "€24+",
-    grain: "€19+",
-    highlight: true,
+    feature: "Language + theme + transparency controls",
+    nuvis: "✅",
+    interviewCoder: "🔶",
+    interviewingIo: "🔶",
+    lockedIn: "🔶",
+    finalRound: "🔶",
+    aiApply: "🔶",
+    ultraCode: "🔶",
+    otter: "🔶",
+    fireflies: "🔶",
+    fathom: "🔶",
+    avoma: "🔶",
   },
 ];
 
 const killerFeatures = [
   {
-    icon: <GraduationCap className="w-6 h-6" />,
-    title: "Pre-flight Intelligence",
+    icon: <Mic className="w-6 h-6" />,
+    title: "Live Transcription",
     bullets: [
-      "Instant company + role brief in 60s",
-      "Top questions, traps, and perfect answers",
-      "Custom prep pack based on YOUR CV",
-    ],
-  },
-  {
-    icon: <Zap className="w-6 h-6" />,
-    title: "Adaptive Real-time Coaching",
-    bullets: [
-      "Live STAR prompts and story recall",
-      "System Design hints on demand",
-      "Tone + confidence nudges mid-answer",
-    ],
-  },
-  {
-    icon: <Brain className="w-6 h-6" />,
-    title: "Your Story Vault",
-    bullets: [
-      "Imports CV + GitHub automatically",
-      "Builds proof-rich STAR narratives",
-      "Recalls exact metrics and wins",
+      "Captures system audio + microphone",
+      "Low-latency streaming with Deepgram",
+      "Multi-language support",
     ],
   },
   {
     icon: <MessageSquare className="w-6 h-6" />,
-    title: "Shadow Practice Mode",
+    title: "Assist Mode",
     bullets: [
-      "Mock interviews with scoring",
-      "Record, replay, and fix weak spots",
-      "Actionable post-call debriefs",
+      "Chat with full session context",
+      "Instant answers and follow-ups",
+      "Great for hiring, support, or daily syncs",
+    ],
+  },
+  {
+    icon: <Camera className="w-6 h-6" />,
+    title: "Context Screenshots",
+    bullets: [
+      "Capture moments with hotkeys",
+      "Mix visuals into AI responses",
+      "Ideal for design + code review",
+    ],
+  },
+  {
+    icon: <FileText className="w-6 h-6" />,
+    title: "Session Memory",
+    bullets: [
+      "History, rename, recovery",
+      "Export JSON / Markdown",
+      "Summaries and auto-answers",
     ],
   },
   {
     icon: <EyeOff className="w-6 h-6" />,
-    title: "100% Undetectable Stealth",
+    title: "Invisible Mode",
     bullets: [
-      "Invisible overlay in screen share",
-      "No bot joins your meetings",
-      "Local-first & 100% private",
+      "Hide Nuvis in screen share",
+      "Theme + transparency controls",
+      "Custom instructions per session",
     ],
   },
 ];
@@ -413,154 +199,156 @@ const killerFeatures = [
 const testimonials = [
   {
     name: "Ivan K.",
-    role: "Senior React Dev",
-    company: "Remote-first SaaS",
+    role: "Staff Engineer",
+    company: "Remote SaaS",
     quote:
-      "3 interviews → FAANG offer. Nuvis remembered my projects better than I did.",
+      "Nuvis lets me stay present. Transcripts + summaries are ready before the call ends.",
     avatar: "https://i.pravatar.cc/150?img=12",
     link: "https://linkedin.com/in/ivan-k",
   },
   {
     name: "Marta L.",
-    role: "Backend Engineer",
-    company: "Fintech scale-up",
+    role: "Product Manager",
+    company: "Fintech",
     quote:
-      "The stealth overlay is unreal. My answers got sharper in the first week.",
+      "Assist mode is a superpower. I can ask for instant recaps without breaking flow.",
     avatar: "https://i.pravatar.cc/150?img=32",
     link: "https://linkedin.com/in/marta-l",
   },
   {
     name: "Oleh S.",
-    role: "Staff Engineer",
+    role: "Solutions Architect",
     company: "Cloud infra",
     quote:
-      "Pre-flight briefs saved me hours. Walked in knowing the exact risks.",
+      "Screenshots + context is the killer feature. Perfect for technical reviews.",
     avatar: "https://i.pravatar.cc/150?img=53",
     link: "https://linkedin.com/in/oleh-s",
   },
   {
     name: "Nina P.",
-    role: "Product Engineer",
-    company: "Healthcare AI",
+    role: "Customer Success",
+    company: "Healthtech",
     quote:
-      "Post-call debriefs are ruthless in the best way. You fix mistakes fast.",
+      "No meeting bot. No awkward recording prompts. Just clean notes and action items.",
     avatar: "https://i.pravatar.cc/150?img=47",
     link: "https://linkedin.com/in/nina-p",
   },
   {
     name: "Danylo M.",
-    role: "Full-stack",
+    role: "Engineering Lead",
     company: "B2B SaaS",
     quote:
-      "Cheaper than Cluely and actually invisible. No contest.",
+      "Session history + export keeps my team aligned. JSON/Markdown is a lifesaver.",
     avatar: "https://i.pravatar.cc/150?img=19",
     link: "https://linkedin.com/in/danylo-m",
   },
   {
     name: "Kira T.",
-    role: "ML Engineer",
-    company: "Edge AI",
+    role: "Designer",
+    company: "Marketplace",
     quote:
-      "Local-first means I can use it on sensitive interviews. Zero cloud risk.",
+      "Invisible mode means I can share my screen without showing my notes.",
     avatar: "https://i.pravatar.cc/150?img=25",
     link: "https://linkedin.com/in/kira-t",
   },
   {
     name: "Artem H.",
-    role: "iOS Engineer",
-    company: "Consumer apps",
+    role: "QA Lead",
+    company: "Security",
     quote:
-      "Shadow Practice Mode nailed my weak spots. Landed the role in 2 weeks.",
+      "I can tag issues with screenshots in seconds. It made retros way sharper.",
     avatar: "https://i.pravatar.cc/150?img=8",
     link: "https://linkedin.com/in/artem-h",
   },
   {
     name: "Sofia V.",
-    role: "Data Engineer",
+    role: "Data Analyst",
     company: "E-commerce",
     quote:
-      "Nuvis feels like a personal brain. It remembers every story, perfectly.",
+      "Nuvis summaries are crisp and on-point. I export them straight to Notion.",
     avatar: "https://i.pravatar.cc/150?img=44",
     link: "https://linkedin.com/in/sofia-v",
-  },
-  {
-    name: "Andrii N.",
-    role: "Solutions Architect",
-    company: "Cloud platform",
-    quote:
-      "The system design hints are surgical. It feels like a senior mentor.",
-    avatar: "https://i.pravatar.cc/150?img=59",
-    link: "https://linkedin.com/in/andrii-n",
   },
 ];
 
 const testimonialLoop = [...testimonials, ...testimonials];
 
+const logos = [
+  "Cloudflare",
+  "Stripe",
+  "Shopify",
+  "Booking.com",
+  "Revolut",
+  "Remote",
+  "Glovo",
+  "EPAM",
+  "Zapier",
+  "Linear",
+];
+
+const logoLoop = [...logos, ...logos];
+
 const faqs = [
   {
-    q: "Will it get detected?",
-    a: "Nuvis uses a truly invisible stealth overlay that never appears in screen share or recordings. No bots. No surprises.",
+    q: "Does Nuvis work offline?",
+    a: "Not yet. Nuvis relies on internet services for live transcription and AI responses.",
   },
   {
-    q: "Local or cloud?",
-    a: "Local-first and 100% private. Audio and screen are processed on-device. Cloud upload is off by default.",
+    q: "Where is my data stored?",
+    a: "Sessions, transcripts, and screenshots are stored locally on your machine by default.",
   },
   {
-    q: "Mac or Windows?",
-    a: "Both. Native apps for macOS and Windows with the same stealth overlay engine.",
+    q: "Will it show in screen share?",
+    a: "Nuvis has an Invisible Mode that hides the window during screen share.",
   },
   {
-    q: "Does it work with Zoom / Meet / Teams?",
-    a: "Yes. Nuvis is app-agnostic and works with any call or interview platform.",
+    q: "What permissions are required?",
+    a: "Microphone and Screen Recording permissions are needed for audio capture and screenshots.",
   },
   {
-    q: "Is this just transcription?",
-    a: "No. It’s a candidate-first copilot: pre-flight brief, real-time coaching, and post-call debrief.",
+    q: "Can I export sessions?",
+    a: "Yes. Export full sessions to JSON or Markdown with one click.",
   },
   {
-    q: "Can I cancel anytime?",
-    a: "Yes. No lock-ins. Upgrade, downgrade, or cancel in one click.",
+    q: "Does Nuvis join my calls?",
+    a: "No meeting bot joins your call. Nuvis listens locally via system audio.",
   },
 ];
 
 const pricing = [
   {
-    name: "Free",
-    price: "€0",
-    desc: "Try the core engine",
+    name: "Day",
+    price: "€10",
+    desc: "24 hours of full access",
     features: [
-      "1 interview per week",
-      "Basic real-time hints",
-      "Local-only processing",
-      "Limited Story Vault",
+      "Live transcription",
+      "Assist mode",
+      "Session summaries",
     ],
-    cta: "Start Free",
+    cta: "Start for a Day",
   },
   {
-    name: "Personal",
-    price: "€15/mo",
-    desc: "Most popular",
+    name: "Week",
+    price: "€15",
+    desc: "7 days of full access",
     features: [
-      "Unlimited interviews",
-      "Full Story Vault + CV/GitHub import",
-      "Pre-flight brief + post-call debrief",
-      "Stealth overlay + no bot",
-      "Shadow Practice Mode",
+      "Everything in Day",
+      "Session history + export",
+      "Invisible mode",
     ],
-    cta: "Go Personal",
+    cta: "Go Week",
     highlight: true,
   },
   {
-    name: "Power",
-    price: "€35/mo",
-    desc: "For heavy hitters",
+    name: "Month",
+    price: "€45",
+    desc: "30 days of full access",
     features: [
-      "Everything in Personal",
-      "Advanced System Design coaching",
-      "Custom role playbooks",
-      "Priority model updates",
+      "Everything in Week",
+      "Extended access window",
+      "Best for ongoing work",
     ],
-    cta: "Unlock Power",
+    cta: "Go Month",
   },
 ];
 
@@ -583,7 +371,7 @@ const Home = () => {
             <div className="leading-tight">
               <div className="text-lg font-bold tracking-tight">Nuvis</div>
               <div className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
-                Invisible Copilot
+                Meeting Copilot
               </div>
             </div>
           </div>
@@ -601,21 +389,15 @@ const Home = () => {
               Proof
             </a>
             <a href="#pricing" className="hover:text-primary transition-colors">
-              Pricing
+              Plans
             </a>
             <a href="#faq" className="hover:text-primary transition-colors">
               FAQ
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href="#pricing"
-              className="hidden sm:inline-flex btn-secondary px-4 py-2 text-sm"
-            >
-              See Pricing
-            </a>
             <a href="#cta" className="btn-primary px-4 py-2 text-sm">
-              Start Free
+              Get Nuvis
             </a>
           </div>
         </div>
@@ -651,7 +433,7 @@ const Home = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-[0.35em]"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Join 1,247 engineers crushing interviews
+            Invisible meeting copilot
           </motion.div>
 
           <motion.h1
@@ -660,12 +442,12 @@ const Home = () => {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="mt-5 text-[40px] sm:text-[52px] lg:text-[64px] leading-[1.05] font-black max-w-4xl"
           >
-            Crush interviews without getting caught.
+            Stay present in every call.
             <br />
-            <span className="text-primary">Your invisible AI copilot.</span>
+            <span className="text-primary">Nuvis listens and helps, invisibly.</span>
             <br />
             <span className="text-muted-foreground">
-              15€/mo vs 75€ Cluely Pro + Undetectable.
+              Live transcription, Assist mode, instant summaries.
             </span>
           </motion.h1>
 
@@ -675,39 +457,25 @@ const Home = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-4 text-lg sm:text-xl text-muted-foreground max-w-2xl"
           >
-            Nuvis is your personal brain for interviews: it remembers YOUR
-            stories, CV, and GitHub, then coaches you before, during, and after
-            every call. No BS. Works. Cheaper. Private.
+            System audio + mic transcription, Assist chat, and export-ready
+            summaries — all in one desktop copilot.
           </motion.p>
 
-          <motion.ul
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-4 grid gap-2 text-sm sm:text-base"
+            className="mt-4 flex flex-wrap gap-3 text-xs uppercase tracking-[0.25em] text-muted-foreground"
           >
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-              <span>
-                <strong>Local-first & 100% private</strong> — processes audio and
-                screen on-device, no cloud upload by default.
+            {["Live transcription", "Assist chat", "Session summaries"].map((item) => (
+              <span
+                key={item}
+                className="px-3 py-1 rounded-full bg-white/5 border border-white/10"
+              >
+                {item}
               </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-              <span>
-                <strong>Truly invisible stealth overlay</strong> — never shows in
-                screen share or recording (unlike Cluely/Otter).
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-              <span>
-                <strong>Cheaper than Cluely, better than Otter</strong> — €15/mo vs
-                €75/mo Cluely Pro + Undetectable.
-              </span>
-            </li>
-          </motion.ul>
+            ))}
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -715,45 +483,14 @@ const Home = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="mt-6 flex flex-col sm:flex-row items-center gap-4"
           >
-            <a href="#pricing" className="btn-primary w-full sm:w-auto flex items-center gap-2">
-              <Download className="w-5 h-5" />
-              Start Free — No Card Required
+            <a href="#cta" className="btn-primary w-full sm:w-auto flex items-center gap-2">
+              <ArrowRight className="w-5 h-5" />
+              Get Nuvis
             </a>
             <a href="#video" className="btn-secondary w-full sm:w-auto flex items-center gap-2">
               <Play className="w-5 h-5" />
               Watch Demo (60s)
             </a>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-6 inline-flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-secondary"
-          >
-            <span className="px-3 py-1 rounded-full bg-secondary/15 border border-secondary/40">
-              Limited-time: 50% off first 3 months
-            </span>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="mt-8 glass border-white/10 rounded-3xl p-6 max-w-3xl"
-          >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div className="flex-1">
-                <p className="text-sm text-muted-foreground">
-                  Built for candidates first: pre-flight brief, real-time coaching,
-                  and post-call debrief. All invisible. All local.
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Shield className="w-5 h-5 text-primary" />
-                <span>Local-first & private</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -768,11 +505,12 @@ const Home = () => {
             className="mb-10"
           >
             <h2 className="text-4xl sm:text-5xl font-bold">
-              Why Nuvis beats everyone
+              Nuvis vs the rest
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl">
-              No fluff. No bot. No cloud spying. Just real coaching, stealth
-              overlay, and a price that makes Cluely look absurd.
+              Focus on what the app actually ships today: live transcription,
+              Assist chat, screenshots, and session memory — all inside your
+              desktop copilot.
             </p>
           </motion.div>
 
@@ -814,16 +552,16 @@ const Home = () => {
             </table>
           </div>
           <p className="text-xs text-muted-foreground mt-4">
-            *Cluely stealth overlay requires an extra €25/mo add-on.
+            🔶 = varies by plan or platform.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <a href="#pricing" className="btn-primary w-full sm:w-auto flex items-center gap-2">
-              Start Free Trial
+            <a href="#cta" className="btn-primary w-full sm:w-auto flex items-center gap-2">
+              Get Nuvis
               <ArrowRight className="w-4 h-4" />
             </a>
             <a href="#video" className="btn-secondary w-full sm:w-auto">
-              See It Live
+              Watch Demo
             </a>
           </div>
         </div>
@@ -839,11 +577,11 @@ const Home = () => {
             className="text-center"
           >
             <h2 className="text-4xl sm:text-5xl font-bold">
-              See Nuvis crush a live System Design interview
+              See Nuvis assist a live call
             </h2>
             <p className="text-muted-foreground mt-4">
-              Watch the stealth overlay appear, solve a tough question, and
-              disappear — all without showing up on screen share.
+              Live transcription, Assist answers, and clean summaries — without
+              a meeting bot.
             </p>
           </motion.div>
 
@@ -857,16 +595,15 @@ const Home = () => {
             />
           </div>
           <p className="text-sm text-muted-foreground mt-6 text-center">
-            “Watch Nuvis crush a live System Design interview (you never see the
-            overlay!)”
+            “Watch Nuvis handle a live call and generate instant recap notes.”
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#pricing" className="btn-primary w-full sm:w-auto">
-              Start Free
+            <a href="#cta" className="btn-primary w-full sm:w-auto">
+              Get Nuvis
             </a>
             <a href="#features" className="btn-secondary w-full sm:w-auto">
-              See Killer Features
+              See Features
             </a>
           </div>
         </div>
@@ -882,11 +619,11 @@ const Home = () => {
             className="mb-12"
           >
             <h2 className="text-4xl sm:text-5xl font-bold">
-              Killer features built for candidates
+              Core capabilities
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl">
-              Built for candidates first: pre-flight brief, real-time coaching,
-              and post-call debrief. Your personal brain, always on.
+              Everything you need to capture, summarize, and recall a live
+              session — without leaving your call.
             </p>
           </motion.div>
 
@@ -921,8 +658,8 @@ const Home = () => {
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
-            <a href="#pricing" className="btn-primary w-full sm:w-auto">
-              Start Free Trial
+            <a href="#cta" className="btn-primary w-full sm:w-auto">
+              Get Nuvis
             </a>
             <a href="#social-proof" className="btn-secondary w-full sm:w-auto">
               See Proof
@@ -941,11 +678,11 @@ const Home = () => {
             className="mb-10"
           >
             <h2 className="text-4xl sm:text-5xl font-bold">
-              Engineers who landed offers, faster
+              Teams who run cleaner calls
             </h2>
             <p className="text-muted-foreground mt-4">
-              Real candidates. Real offers. Nuvis is the unfair advantage that
-              stays invisible.
+              From engineering to customer success — Nuvis keeps every meeting
+              crisp, searchable, and actionable.
             </p>
           </motion.div>
 
@@ -1033,41 +770,34 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span className="uppercase tracking-[0.2em] text-xs">
-              Used by engineers @
-            </span>
-            {[
-              "Cloudflare",
-              "Stripe",
-              "Shopify",
-              "Booking.com",
-              "Revolut",
-              "Remote",
-              "Glovo",
-              "EPAM",
-            ].map((logo) => (
-              <span
-                key={logo}
-                className="px-4 py-2 rounded-full border border-white/10 bg-white/5"
-              >
-                {logo}
-              </span>
-            ))}
+          <div className="mt-12 space-y-3 text-sm text-muted-foreground">
+            <div className="uppercase tracking-[0.2em] text-xs">Used by teams at</div>
+            <div className="overflow-hidden">
+              <div className="marquee">
+                {logoLoop.map((logo, idx) => (
+                  <span
+                    key={`${logo}-${idx}`}
+                    className="px-5 py-2 rounded-full border border-white/10 bg-white/5"
+                  >
+                    {logo}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <a href="#pricing" className="btn-primary w-full sm:w-auto">
-              Start Free
+            <a href="#cta" className="btn-primary w-full sm:w-auto">
+              Get Nuvis
             </a>
-            <a href="#cta" className="btn-secondary w-full sm:w-auto">
-              Download for Mac
+            <a href="#pricing" className="btn-secondary w-full sm:w-auto">
+              See Plans
             </a>
           </div>
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* Plans */}
       <section id="pricing" className="relative py-24 bg-background/95">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -1076,9 +806,9 @@ const Home = () => {
             viewport={{ once: true }}
             className="mb-12"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold">Pricing</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold">Plans</h2>
             <p className="text-muted-foreground mt-4">
-              Cheaper than Cluely, better than Otter. Pick your weapon.
+              Simple access tiers for quick sessions or long-running work.
             </p>
           </motion.div>
 
@@ -1125,9 +855,9 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="mt-10 flex items-center gap-3 text-sm text-secondary">
-            <Sparkles className="w-4 h-4" />
-            Limited-time: 50% off first 3 months on Personal and Power.
+          <div className="mt-10 flex items-center gap-3 text-sm text-muted-foreground">
+            <Sparkles className="w-4 h-4 text-primary" />
+            Plans match what the app offers today — no hidden tiers.
           </div>
         </div>
       </section>
@@ -1166,10 +896,10 @@ const Home = () => {
 
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
             <a href="#cta" className="btn-primary w-full sm:w-auto">
-              Start Free
+              Get Nuvis
             </a>
             <a href="#pricing" className="btn-secondary w-full sm:w-auto">
-              See Pricing
+              See Plans
             </a>
           </div>
         </div>
@@ -1183,27 +913,25 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="glass border-primary/30 rounded-[32px] p-10 md:p-16 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold">
-              Start Free Trial — No Card Required
+              Ready for your next call?
             </h2>
             <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Get the invisible AI interview copilot built for candidates first.
-              Local-first. 100% private. Cheaper than Cluely. Better than Otter.
+              Nuvis keeps your sessions searchable, summarized, and ready to
+              export — without leaving the call.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#" className="btn-primary w-full sm:w-auto flex items-center gap-2">
-                <Download className="w-5 h-5" />
-                Download for Mac
+              <a href="#footer-download" className="btn-primary w-full sm:w-auto flex items-center gap-2">
+                <ArrowRight className="w-5 h-5" />
+                Get Nuvis
               </a>
-              <a href="#" className="btn-secondary w-full sm:w-auto flex items-center gap-2">
-                <Cpu className="w-5 h-5" />
-                Download for Windows
+              <a href="#pricing" className="btn-secondary w-full sm:w-auto">
+                See Plans
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              <span>Local-first</span>
-              <span>Invisible</span>
-              <span>15€/mo</span>
-              <span>Built for candidates</span>
+              <span>Live transcription</span>
+              <span>Assist mode</span>
+              <span>Session export</span>
             </div>
           </div>
         </div>
@@ -1211,17 +939,20 @@ const Home = () => {
 
       <footer className="py-16 border-t border-white/10 bg-background">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="glass border-white/10 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div
+            id="footer-download"
+            className="glass border-white/10 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+          >
             <div>
               <div className="text-xs uppercase tracking-[0.3em] text-primary">
-                Ready to pass your next interview?
+                Ready for sharper meetings?
               </div>
               <h3 className="text-2xl md:text-3xl font-semibold mt-3">
-                Download Nuvis and crush your next call.
+                Download Nuvis and capture every call.
               </h3>
               <p className="text-muted-foreground mt-3 max-w-xl text-sm">
-                Invisible. Local-first. Built for candidates. The fastest way to
-                walk in prepared and walk out with an offer.
+                Live transcription, Assist answers, and clean session history —
+                without switching tools.
               </p>
               <a
                 href="#"
@@ -1233,30 +964,30 @@ const Home = () => {
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <a href="#" className="btn-primary w-full sm:w-auto">
-                Download for Mac
+                Download Nuvis
               </a>
-              <a href="#" className="btn-secondary w-full sm:w-auto">
-                Download for Windows
+              <a href="#pricing" className="btn-secondary w-full sm:w-auto">
+                See Plans
               </a>
             </div>
           </div>
 
           <div className="relative mt-12">
-            <div className="text-[18vw] sm:text-[12vw] md:text-[96px] font-black tracking-tight text-white/5 leading-none">
+            <div className="text-[26vw] sm:text-[18vw] md:text-[180px] font-black tracking-[0.32em] text-white/5 leading-none">
               Nuvis
             </div>
             <div className="mt-2 h-px w-full bg-white/60" />
           </div>
 
-          <div className="mt-8 grid gap-8 md:grid-cols-4 text-sm text-muted-foreground">
+          <div className="mt-8 grid gap-8 md:grid-cols-3 text-sm text-muted-foreground">
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-foreground font-semibold">
                 <Sparkles className="w-4 h-4 text-primary" />
                 Nuvis
               </div>
               <p className="text-sm">
-                The invisible AI interview copilot. Pre-flight brief, real-time
-                coaching, post-call debrief. No cloud by default.
+                The invisible AI meeting copilot. Live transcription, Assist
+                mode, and session memory.
               </p>
             </div>
             <div>
@@ -1275,18 +1006,8 @@ const Home = () => {
               </div>
               <ul className="space-y-2">
                 <li><a href="#features" className="hover:text-primary">Features</a></li>
-                <li><a href="#pricing" className="hover:text-primary">Pricing</a></li>
+                <li><a href="#pricing" className="hover:text-primary">Plans</a></li>
                 <li><a href="#faq" className="hover:text-primary">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-xs uppercase tracking-[0.3em] text-primary mb-3">
-                Compare
-              </div>
-              <ul className="space-y-2">
-                <li><a href="#comparison" className="hover:text-primary">Nuvis vs Cluely</a></li>
-                <li><a href="#comparison" className="hover:text-primary">Nuvis vs Interview Coder</a></li>
-                <li><a href="#comparison" className="hover:text-primary">Nuvis vs Otter</a></li>
               </ul>
             </div>
           </div>

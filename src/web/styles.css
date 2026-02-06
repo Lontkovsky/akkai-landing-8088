@@ -35,9 +35,9 @@
 }
 
 :root {
-  --brand-h: 20;
-  --brand-s: 90%;
-  --brand-l: 55%;
+  --brand-h: 150;
+  --brand-s: 70%;
+  --brand-l: 45%;
   --brand: var(--brand-h) var(--brand-s) var(--brand-l);
 
   --background: #0b0c10;
@@ -114,7 +114,10 @@ details[open] summary span {
   display: flex;
   gap: 1.5rem;
   width: max-content;
-  animation: marquee 42s linear infinite;
+  min-width: 200%;
+  align-items: center;
+  animation: marquee 36s linear infinite;
+  will-change: transform;
 }
 
 .marquee-reverse {
@@ -127,8 +130,7 @@ details[open] summary span {
 
 @media (prefers-reduced-motion: reduce) {
   .marquee {
-    animation: none;
-    transform: translateX(0%);
+    animation-duration: 120s;
   }
 }
 
